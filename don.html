@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don👑 | Web3 Creative Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #e4e4e7;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: block;
+            border: 4px solid rgba(129, 140, 248, 0.3);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            object-fit: cover;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            border-color: rgba(129, 140, 248, 0.5);
+            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #a1a1aa;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.4);
+            background: linear-gradient(135deg, #3730a3 0%, #6b21a8 100%);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #f4f4f5;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #d4d4d8;
+            margin-bottom: 25px;
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(24, 24, 27, 0.8) 0%, rgba(39, 39, 42, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(129, 140, 248, 0.3);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #f4f4f5;
+        }
+
+        .service-description {
+            color: #d4d4d8;
+            margin-bottom: 20px;
+        }
+
+        .service-examples {
+            color: #a1a1aa;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio/Proof of Work Section */
+       .portfolio {
+            padding: 80px 0;
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .portfolio-item {
+            background: linear-gradient(135deg, rgba(24, 24, 27, 0.8) 0%, rgba(39, 39, 42, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+            border-color: rgba(129, 140, 248, 0.4);
+        }
+
+        .portfolio-item:hover .portfolio-title {
+            color: #818cf8;
+        }
+
+        .portfolio-item:hover .portfolio-type {
+            background: rgba(79, 70, 229, 0.3);
+            border-color: rgba(129, 140, 248, 0.5);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 500;
+            overflow: hidden;
+            margin: 15px;
+            margin-bottom: 0;
+            border-radius: 10px;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f4f4f5;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-type {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(79, 70, 229, 0.2);
+            color: #c4b5fd;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-description {
+            color: #d4d4d8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            color: #d4d4d8;
+            margin-bottom: 30px;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-method {
+            display: inline-block;
+            padding: 12px 25px;
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            border-radius: 30px;
+            color: #c4b5fd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(79, 70, 229, 0.2);
+            border-color: rgba(129, 140, 248, 0.5);
+            transform: translateY(-2px);
+            color: #f4f4f5;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #71717a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .service-card,
+            .portfolio-content {
+                padding: 30px;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="Donpfp.jpg" alt="Don👑 Profile Picture" class="profile-image">
+            <h1>Don👑</h1>
+            <p class="tagline">Graphic Design • Technical Writing</p>
+            <a href="#contact" class="cta-button">Let's Work Together</a>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About</h2>
+                <p class="about-text">I'm a technical writer and graphic designer. I write whitepapers and pitch decks, working with founders to articulate their vision and explain tokenomics to investors and communities. On the design side, I create brand identities, infographics, NFTs, and custom Telegram and Discord stickers for bpth utility and meme projects.</p>
+                
+                <p class="about-text">My combination of writing and design skills allows me to handle complete Web3 communication projects, building trust through clear messaging and strong visual identity in the decentralized space.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 class="service-title">Graphic Design</h3>
+                    <p class="service-description">I design visual assets that capture attention and build community engagement, from brand identities to custom stickers for meme projects.</p>
+                    <p class="service-examples">Brand logos, infographics, NFT collections, Telegram/Discord stickers, marketing materials</p>
+                </div>
+                
+               
+                
+                <div class="service-card">
+                    <h3 class="service-title">Technical Writing</h3>
+                    <p class="service-description">I write comprehensive whitepapers and compelling pitch decks that clearly communicate your project's vision, tokenomics, and value proposition.</p>
+                    <p class="service-examples">Whitepapers, pitch decks, technical documentation, tokenomics docs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Proof of Work</h2>
+            <div class="portfolio-grid">
+                <a href="https://t.me/DonGDPOW" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="GD.png" alt="">
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-type">Graphic Design</div>
+                        <h3 class="portfolio-title">Brand Identity Package</h3>
+                        <p class="portfolio-description">Complete visual identity including logo design, brand guidelines, social media assets, and custom illustration work for emerging blockchain project.</p>
+                    </div>
+                </a>
+
+                <a href="https://t.me/DonTWPOW" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="TW.png" alt="">
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-type">Technical Writing</div>
+                        <h3 class="portfolio-title">Technical Documentation</h3>
+                        <p class="portfolio-description">Well-detailed whitepapers, pitch decks, tokenomics documentation, and project roadmaps that clearly communicate technical concepts and project vision to investors and communities.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Ready to Collaborate?</h2>
+                <p class="contact-text">Whether you need compelling content, technical documentation, or eye-catching visuals for your Web3 project, I'm here to help bring your vision to life.</p>
+                
+                <div class="contact-methods">
+                    <a href="mailto:donnabeel0001@gmail.com" class="contact-method">Email</a>
+                    <a href="https://t.me/DonNabeel" class="contact-method">Telegram</a>
+                    <a href="https://x.com/_Don001" class="contact-method">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Don👑. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
